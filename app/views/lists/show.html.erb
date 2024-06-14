@@ -1,4 +1,4 @@
-<h1><%= @list.name %></h1>
+
 <h2>Add a new bookmark</h2>
 <%= render 'bookmarks/form', list: @list, bookmark: @bookmark %>
 <h2>Bookmarks</h2>
@@ -6,7 +6,7 @@
   <% @bookmarks.each do |bookmark| %>
     <li>
       <strong><%= bookmark.movie.title %></strong> - <%= bookmark.comment %>
-      <%= link_to 'Delete', bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+      <%= link_to 'Delete', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger" %>
     </li>
   <% end %>
 </ul>
